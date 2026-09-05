@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 
 type WebinarPageProps = {
   onNavigate: (
-    page: 'home' | 'webinar' | 'video-detail' | 'resources'
+    page: 'home' | 'webinar' | 'video-detail' | 'resources' | 'seminar'
   ) => void
 }
 
@@ -152,9 +152,13 @@ function WebinarPage({ onNavigate }: WebinarPageProps) {
   Resources
 </button>
 
-            <button type="button" className="nav-button">
-              Seminar
-            </button>
+            <button
+  type="button"
+  className="nav-button"
+  onClick={() => onNavigate('seminar')}
+>
+  Seminar
+</button>
 
             <button type="button" className="nav-button">
               Notice

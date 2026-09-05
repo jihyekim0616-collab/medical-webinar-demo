@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 
 type ResourcesPageProps = {
-  onNavigate: (page: 'home' | 'webinar' | 'video-detail' | 'resources') => void
+  onNavigate: (page: 'home' | 'webinar' | 'video-detail' | 'resources' | 'seminar') => void
 }
 
 type ResourceCategory = '전체' | '제품자료' | '임상자료' | '시술가이드'
@@ -151,9 +151,13 @@ function ResourcesPage({ onNavigate }: ResourcesPageProps) {
               Resources
             </button>
 
-            <button type="button" className="nav-button">
-              Seminar
-            </button>
+            <button
+  type="button"
+  className="nav-button"
+  onClick={() => onNavigate('seminar')}
+>
+  Seminar
+</button>
 
             <button type="button" className="nav-button">
               Notice

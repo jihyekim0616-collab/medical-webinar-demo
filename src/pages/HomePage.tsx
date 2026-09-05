@@ -1,6 +1,11 @@
 type HomePageProps = {
   onNavigate: (
-    page: 'home' | 'webinar' | 'video-detail' | 'resources'
+    page:
+      | 'home'
+      | 'webinar'
+      | 'video-detail'
+      | 'resources'
+      | 'seminar'
   ) => void
 }
 const webinars = [
@@ -59,24 +64,36 @@ function HomePage({ onNavigate }: HomePageProps) {
           </a>
 
           <nav className="nav">
-            <a className="active" href="#">Home</a>
-            <button
-  type="button"
-  className="nav-button"
-  onClick={() => onNavigate('webinar')}
->
-  Webinar
-</button>
-            <button
-  type="button"
-  className="nav-button"
-  onClick={() => onNavigate('resources')}
->
-  Resources
-</button>
-            <a href="#">Seminar</a>
-            <a href="#">Notice</a>
-          </nav>
+  <a className="active" href="#">
+    Home
+  </a>
+
+  <button
+    type="button"
+    className="nav-button"
+    onClick={() => onNavigate('webinar')}
+  >
+    Webinar
+  </button>
+
+  <button
+    type="button"
+    className="nav-button"
+    onClick={() => onNavigate('resources')}
+  >
+    Resources
+  </button>
+
+  <button
+    type="button"
+    className="nav-button"
+    onClick={() => onNavigate('seminar')}
+  >
+    Seminar
+  </button>
+
+  <a href="#">Notice</a>
+</nav>
 
           <div className="user-menu">
             <span className="doctor-badge">DR</span>
@@ -135,9 +152,13 @@ function HomePage({ onNavigate }: HomePageProps) {
               <h2>다가오는 세미나</h2>
             </div>
 
-            <a className="view-all" href="#">
-              전체 일정 보기 <span>→</span>
-            </a>
+            <button
+  type="button"
+  className="view-all"
+  onClick={() => onNavigate('seminar')}
+>
+  전체 일정 보기 <span>→</span>
+</button>
           </div>
 
           <article className="seminar-card">
@@ -156,10 +177,14 @@ function HomePage({ onNavigate }: HomePageProps) {
               <p>온라인 라이브 · 사전 등록 후 참여하실 수 있습니다.</p>
             </div>
 
-            <button type="button" className="register-button">
-              사전 등록
-              <span>↗</span>
-            </button>
+            <button
+  type="button"
+  className="register-button"
+  onClick={() => onNavigate('seminar')}
+>
+  사전 등록
+  <span>↗</span>
+</button>
           </article>
         </section>
 

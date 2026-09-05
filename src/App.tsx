@@ -4,8 +4,14 @@ import HomePage from './pages/HomePage'
 import WebinarPage from './pages/WebinarPage'
 import VideoDetailPage from './pages/VideoDetailPage'
 import ResourcesPage from './pages/ResourcesPage'
+import SeminarPage from './pages/SeminarPage'
 
-type Page = 'home' | 'webinar' | 'video-detail' | 'resources'
+type Page =
+  | 'home'
+  | 'webinar'
+  | 'video-detail'
+  | 'resources'
+  | 'seminar'
 
 function App() {
   const [page, setPage] = useState<Page>('home')
@@ -21,6 +27,10 @@ function App() {
 
   if (page === 'resources') {
     return <ResourcesPage onNavigate={handleNavigate} />
+  }
+
+  if (page === 'seminar') {
+    return <SeminarPage onNavigate={handleNavigate} />
   }
 
   if (page === 'webinar') {
