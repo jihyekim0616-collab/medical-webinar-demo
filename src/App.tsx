@@ -30,6 +30,9 @@ type Page =
 function App() {
   const [page, setPage] = useState<Page>('login')
 const [memberName, setMemberName] = useState('김OO')
+const [memberStatus, setMemberStatus] = useState<
+  'pending' | 'approved' | 'rejected'
+>('pending')
   const handleNavigate = (nextPage: Page) => {
     setPage(nextPage)
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -75,20 +78,28 @@ if (page === 'approval-pending') {
 if (page === 'admin') {
   return (
     <AdminPage
-      memberName={memberName}
-      onMemberDetail={() => handleNavigate('admin-member-detail')}
-      onExit={() => handleNavigate('login')}
-    />
+  memberName={memberName}
+  memberStatus={memberStatus}
+  onMemberDetail={() => handleNavigate('admin-member-detail')}
+  onExit={() => handleNavigate('login')}
+/>
   )
 }
 if (page === 'admin-member-detail') {
   return (
     <AdminMemberDetailPage
-      memberName={memberName}
-      onBack={() => handleNavigate('admin')}
-      onApprove={() => {}}
-      onReject={() => {}}
-    />
+  memberName={memberName}
+  memberStatus={memberStatus}
+  onBack={() => handleNavigate('admin')}
+  onApprove={() => {
+    setMemberStatus('approved')
+    handleNavigate('admin')
+  }}
+  onReject={() => {
+    setMemberStatus('rejected')
+    handleNavigate('admin')
+  }}
+/>
   )
 }
   if (page === 'video-detail') {

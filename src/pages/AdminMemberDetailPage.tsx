@@ -1,5 +1,6 @@
 type AdminMemberDetailPageProps = {
   memberName: string
+  memberStatus: 'pending' | 'approved' | 'rejected'
   onBack: () => void
   onApprove: () => void
   onReject: () => void
@@ -7,6 +8,7 @@ type AdminMemberDetailPageProps = {
 
 function AdminMemberDetailPage({
   memberName,
+  memberStatus,
   onBack,
   onApprove,
   onReject,
@@ -87,9 +89,21 @@ function AdminMemberDetailPage({
             </h2>
           </div>
 
-          <span className="admin-detail-status">
-            승인 대기
-          </span>
+          <span
+  className={
+    memberStatus === 'approved'
+      ? 'admin-detail-status approved'
+      : memberStatus === 'rejected'
+        ? 'admin-detail-status rejected'
+        : 'admin-detail-status'
+  }
+>
+  {memberStatus === 'approved'
+    ? '승인 완료'
+    : memberStatus === 'rejected'
+      ? '반려'
+      : '승인 대기'}
+</span>
         </section>
 
         <section className="admin-detail-grid">
@@ -122,9 +136,21 @@ function AdminMemberDetailPage({
               <div>
                 <dt>회원 상태</dt>
                 <dd>
-                  <span className="admin-pending-badge">
-                    승인 대기
-                  </span>
+                  <span
+  className={
+    memberStatus === 'approved'
+      ? 'admin-approved-badge'
+      : memberStatus === 'rejected'
+        ? 'admin-rejected-badge'
+        : 'admin-pending-badge'
+  }
+>
+  {memberStatus === 'approved'
+    ? '승인 완료'
+    : memberStatus === 'rejected'
+      ? '반려'
+      : '승인 대기'}
+</span>
                 </dd>
               </div>
             </dl>
@@ -218,22 +244,38 @@ function AdminMemberDetailPage({
           </div>
 
           <div className="admin-decision-buttons">
-            <button
-              type="button"
-              className="admin-reject-button"
-              onClick={onReject}
-            >
-              반려
-            </button>
+  {memberStatus === 'pending' ? (
+    <>
+      <button
+        type="button"
+        className="admin-reject-button"
+        onClick={onReject}
+      >
+        반려
+      </button>
 
-            <button
-              type="button"
-              className="admin-approve-button"
-              onClick={onApprove}
-            >
-              의료진 회원 승인
-            </button>
-          </div>
+      <button
+        type="button"
+        className="admin-approve-button"
+        onClick={onApprove}
+      >
+        의료진 회원 승인
+      </button>
+    </>
+  ) : (
+    <span
+      className={
+        memberStatus === 'approved'
+          ? 'admin-decision-result approved'
+          : 'admin-decision-result rejected'
+      }
+    >
+      {memberStatus === 'approved'
+        ? '승인 처리가 완료되었습니다.'
+        : '반려 처리가 완료되었습니다.'}
+    </span>
+  )}
+</div>
         </section>
 
         <div className="admin-demo-message">

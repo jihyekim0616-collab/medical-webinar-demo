@@ -1,11 +1,13 @@
 type AdminPageProps = {
   memberName: string
+  memberStatus: 'pending' | 'approved' | 'rejected'
   onMemberDetail: () => void
   onExit: () => void
 }
 
 function AdminPage({
   memberName,
+  memberStatus,
   onMemberDetail,
   onExit,
 }: AdminPageProps) {
@@ -18,6 +20,7 @@ function AdminPage({
       position: '원장',
       verification: '의료진 자격 서류 확인',
       appliedAt: '2026.09.05',
+      status: memberStatus,
     },
     {
       id: 2,
@@ -27,6 +30,7 @@ function AdminPage({
       position: '의사',
       verification: '의료기관 정보 확인',
       appliedAt: '2026.09.04',
+      status: 'pending' as const,
     },
     {
       id: 3,
@@ -36,6 +40,7 @@ function AdminPage({
       position: '원장',
       verification: '의료진 자격 서류 확인',
       appliedAt: '2026.09.03',
+      status: 'pending' as const,
     },
   ]
 
@@ -196,9 +201,21 @@ function AdminPage({
 
                 <span>{member.appliedAt}</span>
 
-                <span className="admin-pending-badge">
-                  승인 대기
-                </span>
+                <span
+  className={
+    member.status === 'approved'
+      ? 'admin-approved-badge'
+      : member.status === 'rejected'
+        ? 'admin-rejected-badge'
+        : 'admin-pending-badge'
+  }
+>
+  {member.status === 'approved'
+    ? '승인 완료'
+    : member.status === 'rejected'
+      ? '반려'
+      : '승인 대기'}
+</span>
 
                 <button
                   type="button"
@@ -208,7 +225,7 @@ function AdminPage({
                       : undefined
                   }
                 >
-                  검토 →
+                  {member.status === 'pending' ? '검토 →' : '상세 →'}
                 </button>
               </div>
             ))}

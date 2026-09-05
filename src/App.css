@@ -4750,3 +4750,50 @@ footer {
     justify-self: start;
   }
 }
+.admin-approved-badge {
+  width: fit-content;
+  padding: 5px 7px;
+  background: #edf4f0;
+  color: #496b59;
+  font-size: 8px;
+}
+
+.admin-rejected-badge {
+  width: fit-content;
+  padding: 5px 7px;
+  background: #f5eeee;
+  color: #835f5f;
+  font-size: 8px;
+}
+
+.admin-detail-status.approved {
+  background: #edf4f0;
+  color: #496b59;
+}
+
+.admin-detail-status.rejected {
+  background: #f5eeee;
+  color: #835f5f;
+}
+
+.admin-decision-result {
+  min-width: 210px;
+  min-height: 40px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.admin-decision-result.approved {
+  background: #edf4f0;
+  color: #496b59;
+}
+
+.admin-decision-result.rejected {
+  background: #f5eeee;
+  color: #835f5f;
+}
