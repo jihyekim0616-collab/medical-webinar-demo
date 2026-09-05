@@ -9,6 +9,7 @@ type HomePageProps = {
       | 'notice'
   ) => void
    memberName: string
+   onLogout: () => void
 }
 const webinars = [
   {
@@ -52,7 +53,7 @@ const resources = [
   },
 ]
 
-function HomePage({ onNavigate, memberName }: HomePageProps) {
+function HomePage({ onNavigate, memberName, onLogout }: HomePageProps) {
   return (
     <div className="portal">
       <header className="header">
@@ -106,7 +107,13 @@ function HomePage({ onNavigate, memberName }: HomePageProps) {
           <div className="user-menu">
             <span className="doctor-badge">DR</span>
             <span className="doctor-name">{memberName} 원장님</span>
-            <button type="button" className="logout-button">Logout</button>
+            <button
+  type="button"
+  className="logout-button"
+  onClick={onLogout}
+>
+  Logout
+</button>
           </div>
         </div>
       </header>

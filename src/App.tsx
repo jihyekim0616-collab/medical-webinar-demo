@@ -129,17 +129,23 @@ if (page === 'admin-webinar') {
   }
 
   if (page === 'notice') {
-    return <NoticePage onNavigate={handleNavigate} />
-  }
+  return (
+    <NoticePage
+      onNavigate={handleNavigate}
+      onLogout={() => handleNavigate('login')}
+    />
+  )
+}
 
   if (page === 'webinar') {
     return <WebinarPage onNavigate={handleNavigate} />
   }
 
-  return (
+ return (
   <HomePage
     onNavigate={handleNavigate}
     memberName={memberName}
+    onLogout={() => handleNavigate('login')}
   />
 )
 }

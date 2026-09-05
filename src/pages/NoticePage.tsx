@@ -10,6 +10,7 @@ type NoticePageProps = {
       | 'seminar'
       | 'notice'
   ) => void
+  onLogout: () => void
 }
 
 type NoticeItem = {
@@ -65,7 +66,7 @@ const notices: NoticeItem[] = [
   },
 ]
 
-function NoticePage({ onNavigate }: NoticePageProps) {
+function NoticePage({ onNavigate, onLogout }: NoticePageProps) {
   const [searchTerm, setSearchTerm] = useState('')
 
   const filteredNotices = useMemo(() => {
@@ -144,14 +145,18 @@ function NoticePage({ onNavigate }: NoticePageProps) {
             <span className="doctor-badge">DR</span>
             <span className="doctor-name">김OO 원장님</span>
 
-            <button type="button" className="logout-button">
-              Logout
-            </button>
+            
           </div>
         </div>
       </header>
 
-      <main className="notice-page">
+      <main className="notice-page"><button
+  type="button"
+  className="logout-button"
+  onClick={onLogout}
+>
+  Logout
+</button>
         <section className="notice-hero">
           <div className="notice-hero-inner">
             <p className="section-kicker">NOTICE & UPDATE</p>
