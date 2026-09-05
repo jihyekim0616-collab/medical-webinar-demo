@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 type SeminarPageProps = {
   onNavigate: (
-    page: 'home' | 'webinar' | 'video-detail' | 'resources' | 'seminar'
+    page: 'home' | 'webinar' | 'video-detail' | 'resources' | 'seminar' | 'notice'
   ) => void
 }
 
@@ -140,9 +140,13 @@ function SeminarPage({ onNavigate }: SeminarPageProps) {
               Seminar
             </button>
 
-            <button type="button" className="nav-button">
-              Notice
-            </button>
+            <button
+  type="button"
+  className="nav-button"
+  onClick={() => onNavigate('notice')}
+>
+  Notice
+</button>
           </nav>
 
           <div className="user-menu">

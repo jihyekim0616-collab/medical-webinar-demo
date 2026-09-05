@@ -5,6 +5,7 @@ import WebinarPage from './pages/WebinarPage'
 import VideoDetailPage from './pages/VideoDetailPage'
 import ResourcesPage from './pages/ResourcesPage'
 import SeminarPage from './pages/SeminarPage'
+import NoticePage from './pages/NoticePage'
 
 type Page =
   | 'home'
@@ -12,6 +13,7 @@ type Page =
   | 'video-detail'
   | 'resources'
   | 'seminar'
+  | 'notice'
 
 function App() {
   const [page, setPage] = useState<Page>('home')
@@ -31,6 +33,10 @@ function App() {
 
   if (page === 'seminar') {
     return <SeminarPage onNavigate={handleNavigate} />
+  }
+
+  if (page === 'notice') {
+    return <NoticePage onNavigate={handleNavigate} />
   }
 
   if (page === 'webinar') {

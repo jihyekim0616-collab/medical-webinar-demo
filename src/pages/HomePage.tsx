@@ -6,6 +6,7 @@ type HomePageProps = {
       | 'video-detail'
       | 'resources'
       | 'seminar'
+      | 'notice'
   ) => void
 }
 const webinars = [
@@ -92,7 +93,13 @@ function HomePage({ onNavigate }: HomePageProps) {
     Seminar
   </button>
 
-  <a href="#">Notice</a>
+  <button
+  type="button"
+  className="nav-button"
+  onClick={() => onNavigate('notice')}
+>
+  Notice
+</button>
 </nav>
 
           <div className="user-menu">
