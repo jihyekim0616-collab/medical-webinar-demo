@@ -1,3 +1,4 @@
+import MedicalInfoPage from './pages/MedicalInfoPage'
 import SignupPage from './pages/SignupPage'
 import { useState } from 'react'
 import './App.css'
@@ -12,6 +13,7 @@ import NoticePage from './pages/NoticePage'
 type Page =
   | 'login'
   | 'signup'
+  | 'medical-info'
   | 'home'
   | 'webinar'
   | 'video-detail'
@@ -21,7 +23,7 @@ type Page =
 
 function App() {
   const [page, setPage] = useState<Page>('login')
-
+const [memberName, setMemberName] = useState('김OO')
   const handleNavigate = (nextPage: Page) => {
     setPage(nextPage)
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -40,11 +42,21 @@ if (page === 'signup') {
   return (
     <SignupPage
       onBack={() => handleNavigate('login')}
+      onNext={(name) => {
+        setMemberName(name)
+        handleNavigate('medical-info')
+      }}
+    />
+  )
+}
+if (page === 'medical-info') {
+  return (
+    <MedicalInfoPage
+      onBack={() => handleNavigate('signup')}
       onNext={() => {}}
     />
   )
 }
-
   if (page === 'video-detail') {
     return <VideoDetailPage onNavigate={handleNavigate} />
   }
@@ -65,7 +77,12 @@ if (page === 'signup') {
     return <WebinarPage onNavigate={handleNavigate} />
   }
 
-  return <HomePage onNavigate={handleNavigate} />
+  return (
+  <HomePage
+    onNavigate={handleNavigate}
+    memberName={memberName}
+  />
+)
 }
 
 export default App

@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 type SignupPageProps = {
   onBack: () => void
-  onNext: () => void
+  onNext: (name: string) => void
 }
 
 function SignupPage({ onBack, onNext }: SignupPageProps) {
@@ -31,7 +31,7 @@ function SignupPage({ onBack, onNext }: SignupPageProps) {
     }
 
     setError('')
-    onNext()
+onNext(name.trim())
   }
 
   return (

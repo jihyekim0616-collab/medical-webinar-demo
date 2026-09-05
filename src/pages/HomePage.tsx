@@ -8,6 +8,7 @@ type HomePageProps = {
       | 'seminar'
       | 'notice'
   ) => void
+   memberName: string
 }
 const webinars = [
   {
@@ -51,7 +52,7 @@ const resources = [
   },
 ]
 
-function HomePage({ onNavigate }: HomePageProps) {
+function HomePage({ onNavigate, memberName }: HomePageProps) {
   return (
     <div className="portal">
       <header className="header">
@@ -104,7 +105,7 @@ function HomePage({ onNavigate }: HomePageProps) {
 
           <div className="user-menu">
             <span className="doctor-badge">DR</span>
-            <span className="doctor-name">김OO 원장님</span>
+            <span className="doctor-name"> 원장님</span>
             <button type="button" className="logout-button">Logout</button>
           </div>
         </div>
