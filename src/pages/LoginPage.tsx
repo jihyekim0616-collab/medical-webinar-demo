@@ -2,9 +2,10 @@ import { useState } from 'react'
 
 type LoginPageProps = {
   onLogin: () => void
+  onSignup: () => void
 }
 
-function LoginPage({ onLogin }: LoginPageProps) {
+function LoginPage({ onLogin, onSignup }: LoginPageProps) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -130,9 +131,9 @@ function LoginPage({ onLogin }: LoginPageProps) {
           <div className="login-signup">
             <span>아직 의료진 회원이 아니신가요?</span>
 
-            <button type="button">
-              의료진 회원가입
-            </button>
+            <button type="button" onClick={onSignup}>
+  의료진 회원가입
+</button>
           </div>
 
           <div className="login-access-note">

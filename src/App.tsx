@@ -1,3 +1,4 @@
+import SignupPage from './pages/SignupPage'
 import { useState } from 'react'
 import './App.css'
 import LoginPage from './pages/LoginPage'
@@ -10,6 +11,7 @@ import NoticePage from './pages/NoticePage'
 
 type Page =
   | 'login'
+  | 'signup'
   | 'home'
   | 'webinar'
   | 'video-detail'
@@ -25,9 +27,23 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  if (page === 'login') {
-    return <LoginPage onLogin={() => handleNavigate('home')} />
-  }
+ if (page === 'login') {
+  return (
+    <LoginPage
+      onLogin={() => handleNavigate('home')}
+      onSignup={() => handleNavigate('signup')}
+    />
+  )
+}
+
+if (page === 'signup') {
+  return (
+    <SignupPage
+      onBack={() => handleNavigate('login')}
+      onNext={() => {}}
+    />
+  )
+}
 
   if (page === 'video-detail') {
     return <VideoDetailPage onNavigate={handleNavigate} />
