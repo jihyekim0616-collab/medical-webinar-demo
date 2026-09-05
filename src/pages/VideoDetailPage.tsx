@@ -1,5 +1,7 @@
 type VideoDetailPageProps = {
-  onNavigate: (page: 'home' | 'webinar') => void
+  onNavigate: (
+    page: 'home' | 'webinar' | 'video-detail' | 'resources'
+  ) => void
 }
 
 function VideoDetailPage({ onNavigate }: VideoDetailPageProps) {
@@ -36,9 +38,13 @@ function VideoDetailPage({ onNavigate }: VideoDetailPageProps) {
               Webinar
             </button>
 
-            <button type="button" className="nav-button">
-              Resources
-            </button>
+            <button
+  type="button"
+  className="nav-button"
+  onClick={() => onNavigate('resources')}
+>
+  Resources
+</button>
 
             <button type="button" className="nav-button">
               Seminar

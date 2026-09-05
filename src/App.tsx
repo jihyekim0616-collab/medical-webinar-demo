@@ -3,8 +3,9 @@ import './App.css'
 import HomePage from './pages/HomePage'
 import WebinarPage from './pages/WebinarPage'
 import VideoDetailPage from './pages/VideoDetailPage'
+import ResourcesPage from './pages/ResourcesPage'
 
-type Page = 'home' | 'webinar' | 'video-detail'
+type Page = 'home' | 'webinar' | 'video-detail' | 'resources'
 
 function App() {
   const [page, setPage] = useState<Page>('home')
@@ -16,6 +17,10 @@ function App() {
 
   if (page === 'video-detail') {
     return <VideoDetailPage onNavigate={handleNavigate} />
+  }
+
+  if (page === 'resources') {
+    return <ResourcesPage onNavigate={handleNavigate} />
   }
 
   if (page === 'webinar') {

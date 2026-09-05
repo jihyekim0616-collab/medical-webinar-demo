@@ -1,5 +1,7 @@
 type HomePageProps = {
-  onNavigate: (page: 'home' | 'webinar') => void
+  onNavigate: (
+    page: 'home' | 'webinar' | 'video-detail' | 'resources'
+  ) => void
 }
 const webinars = [
   {
@@ -65,7 +67,13 @@ function HomePage({ onNavigate }: HomePageProps) {
 >
   Webinar
 </button>
-            <a href="#">Resources</a>
+            <button
+  type="button"
+  className="nav-button"
+  onClick={() => onNavigate('resources')}
+>
+  Resources
+</button>
             <a href="#">Seminar</a>
             <a href="#">Notice</a>
           </nav>
@@ -99,9 +107,12 @@ function HomePage({ onNavigate }: HomePageProps) {
                   최신 웨비나 보기
                   <span>→</span>
                 </button>
-                <button type="button" className="secondary-button">
-                  제품 자료실
-                </button>
+                <button
+  className="secondary-button"
+  onClick={() => onNavigate('resources')}
+>
+  제품 자료실
+</button>
               </div>
             </div>
 
