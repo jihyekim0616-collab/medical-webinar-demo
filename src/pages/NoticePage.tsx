@@ -142,11 +142,17 @@ function NoticePage({ onNavigate, onLogout }: NoticePageProps) {
           </nav>
 
           <div className="user-menu">
-            <span className="doctor-badge">DR</span>
-            <span className="doctor-name">김OO 원장님</span>
+  <span className="doctor-badge">DR</span>
+  <span className="doctor-name">김OO 원장님</span>
 
-            
-          </div>
+  <button
+    type="button"
+    className="logout-button"
+    onClick={onLogout}
+  >
+    Logout
+  </button>
+</div>
         </div>
       </header>
 
