@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import WebinarPage from './pages/WebinarPage'
 import VideoDetailPage from './pages/VideoDetailPage'
@@ -8,6 +9,7 @@ import SeminarPage from './pages/SeminarPage'
 import NoticePage from './pages/NoticePage'
 
 type Page =
+  | 'login'
   | 'home'
   | 'webinar'
   | 'video-detail'
@@ -16,11 +18,15 @@ type Page =
   | 'notice'
 
 function App() {
-  const [page, setPage] = useState<Page>('home')
+  const [page, setPage] = useState<Page>('login')
 
   const handleNavigate = (nextPage: Page) => {
     setPage(nextPage)
     window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  if (page === 'login') {
+    return <LoginPage onLogin={() => handleNavigate('home')} />
   }
 
   if (page === 'video-detail') {
