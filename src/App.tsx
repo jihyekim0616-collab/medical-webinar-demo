@@ -1,3 +1,4 @@
+import AdminMemberDetailPage from './pages/AdminMemberDetailPage'
 import AdminPage from './pages/AdminPage'
 import ApprovalPendingPage from './pages/ApprovalPendingPage'
 import MedicalInfoPage from './pages/MedicalInfoPage'
@@ -24,6 +25,7 @@ type Page =
   | 'seminar'
   | 'notice'
   | 'admin'
+  | 'admin-member-detail'
 
 function App() {
   const [page, setPage] = useState<Page>('login')
@@ -74,8 +76,18 @@ if (page === 'admin') {
   return (
     <AdminPage
       memberName={memberName}
-      onMemberDetail={() => {}}
+      onMemberDetail={() => handleNavigate('admin-member-detail')}
       onExit={() => handleNavigate('login')}
+    />
+  )
+}
+if (page === 'admin-member-detail') {
+  return (
+    <AdminMemberDetailPage
+      memberName={memberName}
+      onBack={() => handleNavigate('admin')}
+      onApprove={() => {}}
+      onReject={() => {}}
     />
   )
 }
