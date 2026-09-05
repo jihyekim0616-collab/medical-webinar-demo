@@ -1,3 +1,4 @@
+import ApprovalPendingPage from './pages/ApprovalPendingPage'
 import MedicalInfoPage from './pages/MedicalInfoPage'
 import SignupPage from './pages/SignupPage'
 import { useState } from 'react'
@@ -14,6 +15,7 @@ type Page =
   | 'login'
   | 'signup'
   | 'medical-info'
+  | 'approval-pending'
   | 'home'
   | 'webinar'
   | 'video-detail'
@@ -53,7 +55,15 @@ if (page === 'medical-info') {
   return (
     <MedicalInfoPage
       onBack={() => handleNavigate('signup')}
-      onNext={() => {}}
+      onNext={() => handleNavigate('approval-pending')}
+    />
+  )
+}
+if (page === 'approval-pending') {
+  return (
+    <ApprovalPendingPage
+      memberName={memberName}
+      onLogin={() => handleNavigate('login')}
     />
   )
 }

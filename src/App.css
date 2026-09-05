@@ -3428,3 +3428,556 @@ footer {
     gap: 20px;
   }
 }
+/* Approval pending */
+
+.approval-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(119, 145, 161, 0.08),
+      transparent 28%
+    ),
+    #f7f9fa;
+}
+
+.approval-main {
+  min-height: calc(100vh - 68px);
+  padding: 65px 24px 85px;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.approval-card {
+  width: min(100%, 650px);
+  padding: 53px 62px 48px;
+  border: 1px solid #dce3e6;
+  background: #ffffff;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.approval-step-label {
+  color: #8296a4;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.approval-icon {
+  width: 54px;
+  height: 54px;
+  margin: 25px auto 22px;
+  border: 1px solid #6f8797;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.approval-icon span {
+  color: #5e7889;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 21px;
+}
+
+.approval-kicker {
+  margin: 0 0 13px;
+  color: #8195a3;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+}
+
+.approval-card h1 {
+  margin: 0;
+  color: #1f3447;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 38px;
+  line-height: 1.18;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+
+.approval-card h1 span {
+  color: #7a909e;
+  font-style: italic;
+}
+
+.approval-description {
+  margin: 21px 0 0;
+  color: #869199;
+  font-size: 9px;
+  line-height: 1.9;
+}
+
+.approval-description strong {
+  color: #536a79;
+  font-weight: 600;
+}
+
+.approval-status {
+  margin: 38px 0 32px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.approval-status-item {
+  width: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.approval-status-item > span {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #cbd4d9;
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+  color: #95a2aa;
+  font-size: 7px;
+}
+
+.approval-status-item.completed > span {
+  border-color: #708796;
+  background: #708796;
+  color: #ffffff;
+}
+
+.approval-status-item.pending > span {
+  border-color: #243d51;
+  background: #243d51;
+  color: #ffffff;
+}
+
+.approval-status-item div {
+  margin-top: 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.approval-status-item strong {
+  color: #586c79;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.approval-status-item small {
+  color: #9ba4aa;
+  font-size: 7px;
+}
+
+.approval-status-item.pending small {
+  color: #617b8c;
+  font-weight: 600;
+}
+
+.approval-status-line {
+  width: 70px;
+  height: 1px;
+  margin-top: 16px;
+  background: #dce2e5;
+}
+
+.approval-status-line.completed {
+  background: #8396a2;
+}
+
+.approval-notice {
+  padding: 18px 20px;
+  border: 1px solid #dce3e6;
+  background: #f7f9fa;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+}
+
+.approval-notice-badge {
+  padding: 6px 8px;
+  background: #263e51;
+  color: #ffffff;
+  font-size: 6px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.approval-notice strong {
+  display: block;
+  color: #4f6574;
+  font-size: 9px;
+}
+
+.approval-notice p {
+  margin: 6px 0 0;
+  color: #929ca2;
+  font-size: 8px;
+  line-height: 1.7;
+}
+
+.approval-demo {
+  margin-top: 14px;
+  padding: 13px 16px;
+  border-left: 2px solid #91a2ad;
+  background: #ffffff;
+  display: flex;
+  gap: 13px;
+  text-align: left;
+}
+
+.approval-demo > span {
+  color: #748b9a;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.approval-demo p {
+  margin: 0;
+  color: #9aa3a8;
+  font-size: 7px;
+  line-height: 1.7;
+}
+
+.approval-login-button {
+  width: 100%;
+  height: 48px;
+  margin-top: 28px;
+  padding: 0 18px;
+  border: 1px solid #233c50;
+  background: #233c50;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: inherit;
+  font-size: 9px;
+}
+
+@media (max-width: 600px) {
+  .approval-main {
+    padding: 35px 16px 55px;
+  }
+
+  .approval-card {
+    padding: 40px 22px;
+  }
+
+  .approval-card h1 {
+    font-size: 32px;
+  }
+
+  .approval-status-item {
+    width: 82px;
+  }
+
+  .approval-status-line {
+    width: 30px;
+  }
+}
+/* Global readability polish */
+
+.header .nav,
+.nav-button {
+  font-size: 11px;
+}
+
+.doctor-name,
+.logout-button {
+  font-size: 10px;
+}
+
+/* Login */
+.login-heading > p {
+  font-size: 9px;
+}
+
+.login-heading > span {
+  font-size: 11px;
+}
+
+.login-form > label > span {
+  font-size: 10px;
+}
+
+.login-form input[type='email'],
+.login-form input[type='password'] {
+  font-size: 12px;
+}
+
+.login-remember,
+.login-text-button,
+.demo-login-button,
+.login-signup,
+.login-signup button {
+  font-size: 10px;
+}
+
+.login-access-note strong {
+  font-size: 10px;
+}
+
+.login-access-note p {
+  font-size: 9px;
+}
+
+/* Signup */
+.signup-kicker {
+  font-size: 9px;
+}
+
+.signup-intro > p:not(.signup-kicker) {
+  font-size: 11px;
+}
+
+.signup-step strong {
+  font-size: 10px;
+}
+
+.signup-step small {
+  font-size: 8px;
+}
+
+.signup-form-heading > span {
+  font-size: 9px;
+}
+
+.signup-form-heading p {
+  font-size: 10px;
+}
+
+.signup-form label > span,
+.verification-fieldset legend {
+  font-size: 10px;
+}
+
+.signup-form input[type='text'],
+.signup-form input[type='email'],
+.signup-form input[type='password'],
+.signup-form select {
+  font-size: 11px;
+}
+
+.signup-form label > small,
+.signup-password-guide,
+.verification-fieldset > p {
+  font-size: 8.5px;
+}
+
+.verification-option strong {
+  font-size: 10px;
+}
+
+.verification-option small {
+  font-size: 9px;
+}
+
+.verification-demo-note strong {
+  font-size: 9px;
+}
+
+.verification-demo-note p {
+  font-size: 9px;
+}
+
+.signup-next-button span:first-child {
+  font-size: 11px;
+}
+
+.signup-next-button span:last-child {
+  font-size: 9px;
+}
+
+/* Approval pending */
+.approval-step-label,
+.approval-kicker {
+  font-size: 8px;
+}
+
+.approval-description {
+  font-size: 10.5px;
+}
+
+.approval-status-item strong {
+  font-size: 9px;
+}
+
+.approval-status-item small {
+  font-size: 8px;
+}
+
+.approval-notice strong {
+  font-size: 10px;
+}
+
+.approval-notice p {
+  font-size: 9px;
+}
+
+.approval-demo > span {
+  font-size: 8px;
+}
+
+.approval-demo p {
+  font-size: 8.5px;
+}
+
+.approval-login-button {
+  font-size: 10px;
+}
+/* Readability polish - step 2 */
+
+/* Header */
+.header .nav,
+.nav-button {
+  font-size: 13px;
+}
+
+.doctor-name,
+.logout-button {
+  font-size: 12px;
+}
+
+/* Login */
+.login-heading > p {
+  font-size: 10px;
+}
+
+.login-heading > span {
+  font-size: 13px;
+}
+
+.login-form > label > span {
+  font-size: 12px;
+}
+
+.login-form input[type='email'],
+.login-form input[type='password'] {
+  font-size: 13px;
+}
+
+.login-remember,
+.login-text-button,
+.demo-login-button,
+.login-signup,
+.login-signup button {
+  font-size: 11px;
+}
+
+.login-access-note strong {
+  font-size: 11px;
+}
+
+.login-access-note p {
+  font-size: 10px;
+}
+
+/* Signup */
+.signup-kicker {
+  font-size: 10px;
+}
+
+.signup-intro > p:not(.signup-kicker) {
+  font-size: 13px;
+}
+
+.signup-step strong {
+  font-size: 12px;
+}
+
+.signup-step small {
+  font-size: 10px;
+}
+
+.signup-form-heading > span {
+  font-size: 10px;
+}
+
+.signup-form-heading p {
+  font-size: 12px;
+}
+
+.signup-form label > span,
+.verification-fieldset legend {
+  font-size: 12px;
+}
+
+.signup-form input[type='text'],
+.signup-form input[type='email'],
+.signup-form input[type='password'],
+.signup-form select {
+  font-size: 13px;
+}
+
+.signup-form label > small,
+.signup-password-guide,
+.verification-fieldset > p {
+  font-size: 10px;
+}
+
+.verification-option strong {
+  font-size: 12px;
+}
+
+.verification-option small {
+  font-size: 10px;
+}
+
+.verification-demo-note strong {
+  font-size: 10px;
+}
+
+.verification-demo-note p {
+  font-size: 10px;
+}
+
+.signup-next-button span:first-child {
+  font-size: 12px;
+}
+
+.signup-next-button span:last-child {
+  font-size: 10px;
+}
+
+/* Approval pending */
+.approval-step-label,
+.approval-kicker {
+  font-size: 9px;
+}
+
+.approval-description {
+  font-size: 12px;
+}
+
+.approval-status-item strong {
+  font-size: 11px;
+}
+
+.approval-status-item small {
+  font-size: 10px;
+}
+
+.approval-notice strong {
+  font-size: 12px;
+}
+
+.approval-notice p {
+  font-size: 10px;
+}
+
+.approval-demo > span {
+  font-size: 9px;
+}
+
+.approval-demo p {
+  font-size: 10px;
+}
+
+.approval-login-button {
+  font-size: 12px;
+}
