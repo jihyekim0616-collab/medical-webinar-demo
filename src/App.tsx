@@ -1,3 +1,4 @@
+import AdminWebinarPage from './pages/AdminWebinarPage'
 import AdminMemberDetailPage from './pages/AdminMemberDetailPage'
 import AdminPage from './pages/AdminPage'
 import ApprovalPendingPage from './pages/ApprovalPendingPage'
@@ -26,6 +27,7 @@ type Page =
   | 'notice'
   | 'admin'
   | 'admin-member-detail'
+  | 'admin-webinar'
 
 function App() {
   const [page, setPage] = useState<Page>('login')
@@ -80,7 +82,12 @@ if (page === 'admin') {
     <AdminPage
   memberName={memberName}
   memberStatus={memberStatus}
-  onMemberDetail={() => handleNavigate('admin-member-detail')}
+  onMemberDetail={() =>
+    handleNavigate('admin-member-detail')
+  }
+  onWebinar={() =>
+    handleNavigate('admin-webinar')
+  }
   onExit={() => handleNavigate('login')}
 />
   )
@@ -100,6 +107,13 @@ if (page === 'admin-member-detail') {
     handleNavigate('admin')
   }}
 />
+  )
+}
+if (page === 'admin-webinar') {
+  return (
+    <AdminWebinarPage
+      onBack={() => handleNavigate('admin')}
+    />
   )
 }
   if (page === 'video-detail') {

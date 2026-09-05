@@ -2,6 +2,7 @@ type AdminPageProps = {
   memberName: string
   memberStatus: 'pending' | 'approved' | 'rejected'
   onMemberDetail: () => void
+  onWebinar: () => void
   onExit: () => void
 }
 
@@ -9,6 +10,7 @@ function AdminPage({
   memberName,
   memberStatus,
   onMemberDetail,
+  onWebinar,
   onExit,
 }: AdminPageProps) {
   const pendingMembers = [
@@ -67,10 +69,13 @@ function AdminPage({
             회원 관리
           </button>
 
-          <button type="button">
-            <span>03</span>
-            Webinar
-          </button>
+          <button
+  type="button"
+  onClick={onWebinar}
+>
+  <span>03</span>
+  Webinar
+</button>
 
           <button type="button">
             <span>04</span>
