@@ -1,3 +1,4 @@
+import AdminPage from './pages/AdminPage'
 import ApprovalPendingPage from './pages/ApprovalPendingPage'
 import MedicalInfoPage from './pages/MedicalInfoPage'
 import SignupPage from './pages/SignupPage'
@@ -22,6 +23,7 @@ type Page =
   | 'resources'
   | 'seminar'
   | 'notice'
+  | 'admin'
 
 function App() {
   const [page, setPage] = useState<Page>('login')
@@ -64,6 +66,16 @@ if (page === 'approval-pending') {
     <ApprovalPendingPage
       memberName={memberName}
       onLogin={() => handleNavigate('login')}
+      onAdmin={() => handleNavigate('admin')}
+    />
+  )
+}
+if (page === 'admin') {
+  return (
+    <AdminPage
+      memberName={memberName}
+      onMemberDetail={() => {}}
+      onExit={() => handleNavigate('login')}
     />
   )
 }

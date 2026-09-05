@@ -1,11 +1,13 @@
 type ApprovalPendingPageProps = {
   memberName: string
   onLogin: () => void
+  onAdmin: () => void
 }
 
 function ApprovalPendingPage({
   memberName,
   onLogin,
+  onAdmin,
 }: ApprovalPendingPageProps) {
   return (
     <div className="approval-page">
@@ -103,6 +105,13 @@ function ApprovalPendingPage({
             </p>
           </div>
 
+<button
+  type="button"
+  className="approval-admin-button"
+  onClick={onAdmin}
+>
+  DEMO 관리자 화면에서 신청 확인하기 →
+</button>
           <button
             type="button"
             className="approval-login-button"
